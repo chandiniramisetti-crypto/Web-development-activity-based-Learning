@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Easy - Bus and Train Booking</title>
+
+    <style>
+        /* Basic page design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f5ff;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #123c69;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #0b2545;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        /* Main content */
+        .container {
+            width: 85%;
+            margin: 25px auto;
+        }
+
+        .booking-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #123c69;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 95%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Available travel services */
+        .services {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 2px 6px #ccc;
+        }
+
+        .card h3 {
+            color: #123c69;
+        }
+
+        .fare {
+            color: #138443;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Fare table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #123c69;
+            color: white;
+        }
+
+        /* Seat selection */
+        .seats {
+            background-color: white;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+
+        .seat {
+            display: inline-block;
+            background-color: #d7f5df;
+            padding: 12px;
+            margin: 6px;
+            border-radius: 5px;
+            border: 1px solid #4caf50;
+        }
+
+        .seat input {
+            width: auto;
+        }
+
+        .booked {
+            background-color: #ffd6d6;
+            border-color: #e53935;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #123c69;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        /* Mobile screen design */
+        @media (max-width: 600px) {
+            .container {
+                width: 92%;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            input, select {
+                width: 90%;
+            }
+
+            .services {
+                flex-direction: column;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Travel Easy</h1>
+        <p>Your Journey, Our Responsibility!</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#booking">Book Tickets</a>
+        <a href="#services">Services</a>
+        <a href="#seats">Select Seats</a>
+    </nav>
+
+    <div class="container" id="home">
+
+        <!-- Booking Form -->
+        <div class="booking-form" id="booking">
+            <h2>Book Your Journey</h2>
+
+            <form action="#">
+                <label for="type">Travel Type:</label>
+                <select id="type" name="type">
+                    <option>Bus</option>
+                    <option>Train</option>
+                </select>
+
+                <label for="source">Source:</label>
+                <input type="text" id="source"
+                       name="source" placeholder="Enter starting city"
+                       required>
+
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination"
+                       name="destination"
+                       placeholder="Enter destination city" required>
+
+                <label for="date">Travel Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="passenger">Passenger Name:</label>
+                <input type="text" id="passenger"
+                       name="passenger" placeholder="Enter your name"
+                       required>
+
+                <label for="age">Passenger Age:</label>
+                <input type="number" id="age" name="age"
+                       min="1" max="120" required>
+
+                <label for="count">Number of Passengers:</label>
+                <select id="count" name="count">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+
+                <button type="submit">Search Tickets</button>
+            </form>
+        </div>
+
+        <!-- Available Services -->
+        <h2 id="services">Available Travel Services</h2>
+
+        <div class="services">
+
+            <div class="card">
+                <h3>Bus Service</h3>
+                <p><b>Route:</b> Vijayawada to Hyderabad</p>
+                <p><b>Departure:</b> 09:00 PM</p>
+                <p><b>Duration:</b> 5 hours</p>
+                <p><b>Type:</b> AC Sleeper</p>
+                <p class="fare">₹800 per person</p>
+                <button type="button">Choose Bus</button>
+            </div>
+
+            <div class="card">
+                <h3>Train Service</h3>
+                <p><b>Route:</b> Vijayawada to Hyderabad</p>
+                <p><b>Departure:</b> 08:00 AM</p>
+                <p><b>Duration:</b> 6 hours</p>
+                <p><b>Class:</b> Sleeper Class</p>
+                <p class="fare">₹350 per person</p>
+                <button type="button">Choose Train</button>
+            </div>
+
+            <div class="card">
+                <h3>Express Bus</h3>
+                <p><b>Route:</b> Vijayawada to Hyderabad</p>
+                <p><b>Departure:</b> 10:00 PM</p>
+                <p><b>Duration:</b> 5.5 hours</p>
+                <p><b>Type:</b> Non-AC Seater</p>
+                <p class="fare">₹500 per person</p>
+                <button type="button">Choose Bus</button>
+            </div>
+
+        </div>
+
+        <!-- Fare Information -->
+        <h2>Ticket Fare Information</h2>
+
+        <table>
+            <tr>
+                <th>Service</th>
+                <th>Travel Class</th>
+                <th>Fare per Person</th>
+            </tr>
+
+            <tr>
+                <td>Bus</td>
+                <td>AC Sleeper</td>
+                <td>₹800</td>
+            </tr>
+
+            <tr>
+                <td>Bus</td>
+                <td>Non-AC Seater</td>
+                <td>₹500</td>
+            </tr>
+
+            <tr>
+                <td>Train</td>
+                <td>Sleeper Class</td>
+                <td>₹350</td>
+            </tr>
+
+            <tr>
+                <td>Train</td>
+                <td>AC Class</td>
+                <td>₹900</td>
+            </tr>
+        </table>
+
+        <!-- Seat Selection -->
+        <div class="seats" id="seats">
+            <h2>Select Your Seat</h2>
+            <p>Green seats are shown as available.
+               Red seats are shown as booked.</p>
+
+            <div class="seat">
+                <input type="checkbox" id="s1" name="seat" value="1">
+                <label for="s1">Seat 1</label>
+            </div>
+
+            <div class="seat">
+                <input type="checkbox" id="s2" name="seat" value="2">
+                <label for="s2">Seat 2</label>
+            </div>
+
+            <div class="seat booked">
+                <input type="checkbox" id="s3" disabled>
+                <label for="s3">Seat 3</label>
+            </div>
+
+            <div class="seat">
+                <input type="checkbox" id="s4" name="seat" value="4">
+                <label for="s4">Seat 4</label>
+            </div>
+
+            <div class="seat">
+                <input type="checkbox" id="s5" name="seat" value="5">
+                <label for="s5">Seat 5</label>
+            </div>
+
+            <div class="seat">
+                <input type="checkbox" id="s6" name="seat" value="6">
+                <label for="s6">Seat 6</label>
+            </div>
+
+            <p><b>Note:</b> Seat availability is for demonstration only.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Travel Easy | Bus and Train Ticket Booking</p>
+    </footer>
+
+</body>
+</html>

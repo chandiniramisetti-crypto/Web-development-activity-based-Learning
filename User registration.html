@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Member Registration Portal</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf5ee;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #176b50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #104b39;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #b9f5d7;
+        }
+
+        .content {
+            width: 90%;
+            max-width: 750px;
+            margin: 30px auto;
+        }
+
+        .welcome {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #21966d;
+        }
+
+        h2 {
+            color: #176b50;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #21966d;
+            border-color: #21966d;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: #d32f2f;
+        }
+
+        .error {
+            color: #d32f2f;
+            font-size: 13px;
+        }
+
+        button {
+            background-color: #21966d;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #176b50;
+        }
+
+        .bottom-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .bottom-link a {
+            color: #176b50;
+        }
+
+        footer {
+            background-color: #104b39;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 500px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .content {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Member Portal</h1>
+        <p>Your account, your space!</p>
+    </header>
+
+    <nav>
+        <a href="#signup">Sign Up</a>
+        <a href="#signin">Sign In</a>
+        <a href="#forgot">Forgot Password</a>
+        <a href="#myprofile">Profile</a>
+    </nav>
+
+    <main class="content">
+
+        <section class="welcome">
+            <h2>Welcome to Our Portal</h2>
+            <p>Create your account, sign in, and manage your personal information.</p>
+        </section>
+
+        <section class="form-box" id="signup">
+            <h2>New User Registration</h2>
+
+            <form action="#" method="post">
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name"
+                       placeholder="Enter your name" required minlength="3">
+
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter your email" required>
+
+                <label for="newpass">Create Password</label>
+                <input type="password" id="newpass" name="password"
+                       placeholder="At least 8 characters"
+                       minlength="8" required>
+
+                <p class="error">Password should contain at least 8 characters.</p>
+
+                <label for="repass">Confirm Password</label>
+                <input type="password" id="repass" name="confirm_password"
+                       placeholder="Enter password again" required>
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <p class="bottom-link">
+                Already have an account? <a href="#signin">Sign in</a>
+            </p>
+        </section>
+
+        <section class="form-box" id="signin">
+            <h2>User Login</h2>
+
+            <form action="#" method="post">
+
+                <label for="loginemail">Email ID</label>
+                <input type="email" id="loginemail" name="email"
+                       placeholder="Enter your email" required>
+
+                <label for="loginpass">Password</label>
+                <input type="password" id="loginpass" name="password"
+                       placeholder="Enter your password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+
+            <p class="bottom-link">
+                <a href="#forgot">Forgot your password?</a>
+            </p>
+        </section>
+
+        <section class="form-box" id="forgot">
+            <h2>Password Recovery</h2>
+
+            <form action="#" method="post">
+
+                <label for="forgotemail">Registered Email</label>
+                <input type="email" id="forgotemail" name="email"
+                       placeholder="Enter registered email" required>
+
+                <button type="submit">Reset Password</button>
+            </form>
+        </section>
+
+        <section class="form-box" id="myprofile">
+            <h2>Personal Profile</h2>
+
+            <form action="#" method="post">
+
+                <label for="profilename">Full Name</label>
+                <input type="text" id="profilename" name="profile_name"
+                       placeholder="Enter full name" required>
+
+                <label for="profileemail">Email ID</label>
+                <input type="email" id="profileemail" name="profile_email"
+                       placeholder="Enter email address" required>
+
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile"
+                       placeholder="10-digit mobile number"
+                       pattern="[0-9]{10}"
+                       title="Enter a 10-digit mobile number">
+
+                <label for="city">City</label>
+                <input type="text" id="city" name="city"
+                       placeholder="Enter your city">
+
+                <label for="about">About Me</label>
+                <textarea id="about" name="about" rows="4"
+                          placeholder="Write a few lines about yourself"></textarea>
+
+                <button type="submit">Save Details</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Member Portal | 2026</p>
+    </footer>
+
+</body>
+</html>
